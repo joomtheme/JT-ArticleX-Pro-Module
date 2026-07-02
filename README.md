@@ -6,7 +6,7 @@ It helps you display Joomla articles in modern layouts such as Carousel, Grid, L
 
 Built by **JoomTheme**
 Website: https://joomtheme.com
-Support: [support@joomtheme.com](mailto:support@joomtheme.com)
+Support: https://github.com/joomtheme/JT-ArticleX-Pro-Module/issues
 
 ---
 
@@ -476,6 +476,6 @@ Support: [support@joomtheme.com](mailto:support@joomtheme.com)
 
 ## 💬 Support
 
-For support, updates and documentation, visit:
+For support and updates, visit:
 
-https://joomtheme.com
+https://github.com/joomtheme/JT-ArticleX-Pro-Module/issues
