@@ -3,6 +3,25 @@
     <changelog>
         <element>mod_jtarticlexpro</element>
         <type>module</type>
+        <version>1.0.18</version>
+        <change>
+            <item>Added responsive one-to-four-column output to the Media List layout.</item>
+            <item>Added configurable 16:9, 4:3, 1:1 and 21:9 image ratios to Media List.</item>
+            <item>Registered module assets through Joomla's extension WebAsset registry.</item>
+        </change>
+        <fix>
+            <item>Corrected the WebAsset stylesheet URI and restored scoped frontend styles.</item>
+            <item>Fixed Media List ignoring the configured column count and image ratio.</item>
+            <item>Fixed image-only filtering returning fewer articles than requested.</item>
+            <item>Normalized null publish dates and improved absolute schema URLs for subdirectory installations.</item>
+        </fix>
+        <note>
+            <item>Compatible with Joomla 6.x, Atum administrator and Cassiopeia frontend templates.</item>
+        </note>
+    </changelog>
+    <changelog>
+        <element>mod_jtarticlexpro</element>
+        <type>module</type>
         <version>1.0.15</version>
         <security>
             <item>Hardened article, category, tag and access-level IN filters with Joomla query array bindings.</item>

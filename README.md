@@ -82,7 +82,7 @@ Best for:
 
 ### Media List
 
-A wider list layout with larger article images.
+A responsive media layout with configurable one-to-four-column output and selectable 16:9, 4:3, 1:1 or 21:9 image ratios. One-column mode uses a horizontal image-and-text presentation, while multi-column modes stack the image above the content.
 
 Best for:
 
@@ -141,7 +141,6 @@ JT ArticleX PRO includes useful but simple options designed not to overwhelm use
 * Show / hide intro text
 * Show / hide read more
 * Configure intro text length
-* Configure title length
 
 ### Carousel Options
 
@@ -335,8 +334,9 @@ tr-TR.mod_jtarticlexpro.sys.ini
 | -------------------------------- | --------- |
 | Joomla 6.x                       | Supported |
 | Joomla 6.1.1                     | Tested    |
-| Bootstrap-based Joomla templates | Supported |
-| Cassiopeia                       | Supported |
+| Bootstrap 5-based site templates | Supported |
+| Cassiopeia frontend template     | Supported |
+| Atum administrator template      | Supported |
 | PHP 8.2+                         | Supported |
 
 ---
@@ -360,6 +360,21 @@ And much more...
 ---
 
 ## 📝 Changelog
+
+### v1.0.18
+
+* Added responsive one-to-four-column support to the Media List layout
+* Added selectable 16:9, 4:3, 1:1 and 21:9 image ratios to Media List
+* Preserved horizontal Media List output when one column is selected
+* Registered module assets through Joomla's extension WebAsset registry
+* Corrected the WebAsset stylesheet URI
+* Fixed oversized Media List images
+* Fixed image-only filtering returning fewer articles than requested
+* Applied image filtering before the database result limit
+* Normalized null publish dates in metadata and JSON-LD
+* Improved absolute URLs for Joomla installations in a subdirectory
+* Clarified Atum administrator and Cassiopeia frontend compatibility
+* Joomla 6.1.x maintenance and reliability release
 
 ### v1.0.15
 
