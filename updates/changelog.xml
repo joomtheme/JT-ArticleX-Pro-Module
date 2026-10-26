@@ -3,6 +3,30 @@
     <changelog>
         <element>mod_jtarticlexpro</element>
         <type>module</type>
+        <version>1.0.19</version>
+        <change>
+            <item>Adopted Joomla database injection in the article helper.</item>
+            <item>Added scheduled featured start and end date handling to filters and displayed featured state.</item>
+            <item>Added a logged grid fallback when the core Bootstrap carousel asset is unavailable.</item>
+        </change>
+        <fix>
+            <item>Fixed image-only filtering errors caused by passing string literals to reference parameters.</item>
+            <item>Decode image JSON independently of formatting and skip malformed or empty image values.</item>
+            <item>Fill the requested article count after image filtering while preserving manual and random ordering.</item>
+            <item>Pair fallback image alt text with the selected image.</item>
+            <item>Align the carousel autoplay fallback with the disabled module-form default.</item>
+            <item>Correct scoped minimum-width classes in List and Media List layouts.</item>
+        </fix>
+        <note>
+            <item>Requires Joomla 6, PHP 8.3 or newer, and a site template providing Bootstrap 5 CSS.</item>
+            <item>Tested on Joomla 6.1.1, 6.1.4 and 6.2.0 with PHP 8.3.32 and MariaDB 11.4.</item>
+            <item>Integration and browser checks cover seven layouts, carousel navigation, JSON-LD, assets and the Atum module edit form.</item>
+            <item>Existing saved module settings are preserved during an update.</item>
+        </note>
+    </changelog>
+    <changelog>
+        <element>mod_jtarticlexpro</element>
+        <type>module</type>
         <version>1.0.18</version>
         <change>
             <item>Added responsive one-to-four-column output to the Media List layout.</item>

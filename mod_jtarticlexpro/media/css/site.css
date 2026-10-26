@@ -1,0 +1,62 @@
+/*
+ * @package     Joomla.Site
+ * @subpackage  mod_jtarticlexpro
+ * @copyright   (C) 2026 JoomTheme. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+.jt-articlex-pro .jt-articlex-pro-control {
+  width: 2rem;
+  height: 2rem;
+  line-height: 1;
+}
+
+.jt-articlex-pro .jt-articlex-pro-indicator {
+  width: 1.5rem;
+  height: .25rem;
+  border: 0;
+  border-radius: .25rem;
+  background-color: var(--bs-body-color, var(--body-color, #212529));
+  opacity: .45;
+}
+
+.jt-articlex-pro .jt-articlex-pro-indicator.active,
+.jt-articlex-pro .jt-articlex-pro-indicator[aria-current="true"] {
+  opacity: 1;
+}
+
+.jt-articlex-pro .jt-articlex-pro-indicator-dot {
+  width: .65rem;
+  height: .65rem;
+  border-radius: 50%;
+}
+
+.jt-articlex-pro .jt-articlex-pro-badge {
+  width: auto;
+  height: auto;
+  right: auto;
+  bottom: auto;
+  z-index: 2;
+}
+
+.jt-articlex-pro .jt-articlex-pro-thumb-sm {
+  width: 6rem;
+}
+
+.jt-articlex-pro .jt-articlex-pro-thumb-featured {
+  width: 5.5rem;
+}
+
+.jt-articlex-pro .jt-articlex-pro-thumb-media {
+  max-width: none;
+}
+
+@media (min-width: 576px) {
+  .jt-articlex-pro .jt-articlex-pro-thumb-media {
+    max-width: 16rem;
+  }
+}
+
+.jt-articlex-pro .jt-articlex-pro-min-w-0 {
+  min-width: 0;
+}

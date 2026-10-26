@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" client="site" method="upgrade">
+    <name>JT ArticleX PRO</name>
+    <version>1.0.19</version>
+    <creationDate>2026-10-27</creationDate>
+    <author>JoomTheme</author>
+    <authorEmail>support@joomtheme.com</authorEmail>
+    <authorUrl>https://joomtheme.com</authorUrl>
+    <copyright>(C) 2026 JoomTheme. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <description>MOD_JTARTICLEXPRO_XML_DESCRIPTION</description>
+    <namespace path="src">JoomTheme\Module\ArticleXPro</namespace>
+
+    <changelogurl>https://raw.githubusercontent.com/joomtheme/JT-ArticleX-Pro-Module/main/updates/changelog.xml</changelogurl>
+
+    <updateservers>
+        <server type="extension" priority="1" name="JT ArticleX PRO Updates">https://raw.githubusercontent.com/joomtheme/JT-ArticleX-Pro-Module/main/updates/update.xml</server>
+    </updateservers>
+
+    <files>
+        <folder module="mod_jtarticlexpro">services</folder>
+        <folder>src</folder>
+        <folder>tmpl</folder>
+        <folder>language</folder>
+        <filename>mod_jtarticlexpro.xml</filename>
+        <filename>README.md</filename>
+        <filename>LICENSE.txt</filename>
+    </files>
+
+    <media destination="mod_jtarticlexpro" folder="media">
+        <folder>css</folder>
+        <filename>joomla.asset.json</filename>
+    </media>
+
+    <config>
+        <fields name="params">
+            <fieldset name="content" label="MOD_JTARTICLEXPRO_FIELDSET_CONTENT">
+                <field
+                    name="catids"
+                    type="category"
+                    extension="com_content"
+                    multiple="true"
+                    label="MOD_JTARTICLEXPRO_FIELD_CATEGORIES_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_CATEGORIES_DESC"
+                />
+
+                <field
+                    name="include_subcategories"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="1"
+                    label="MOD_JTARTICLEXPRO_FIELD_INCLUDE_SUBCATEGORIES_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_INCLUDE_SUBCATEGORIES_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                    name="use_current_category"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="0"
+                    label="MOD_JTARTICLEXPRO_FIELD_CURRENT_CATEGORY_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_CURRENT_CATEGORY_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                    name="tagids"
+                    type="tag"
+                    mode="nested"
+                    multiple="true"
+                    label="MOD_JTARTICLEXPRO_FIELD_TAGS_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_TAGS_DESC"
+                />
+
+                <field
+                    name="article_ids"
+                    type="text"
+                    label="MOD_JTARTICLEXPRO_FIELD_ARTICLE_IDS_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_ARTICLE_IDS_DESC"
+                    hint="12, 42, 100"
+                    filter="string"
+                />
+
+                <field
+                    name="count"
+                    type="number"
+                    default="6"
+                    min="1"
+                    max="48"
+                    step="1"
+                    label="MOD_JTARTICLEXPRO_FIELD_COUNT_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_COUNT_DESC"
+                    filter="integer"
+                />
+
+                <field
+                    name="featured"
+                    type="list"
+                    default="0"
+                    label="MOD_JTARTICLEXPRO_FIELD_FEATURED_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_FEATURED_DESC">
+                    <option value="0">MOD_JTARTICLEXPRO_OPTION_FEATURED_ALL</option>
+                    <option value="1">MOD_JTARTICLEXPRO_OPTION_FEATURED_ONLY</option>
+                    <option value="-1">MOD_JTARTICLEXPRO_OPTION_FEATURED_EXCLUDE</option>
+                </field>
+
+                <field
+                    name="ordering"
+                    type="list"
+                    default="publish_up_desc"
+                    label="MOD_JTARTICLEXPRO_FIELD_ORDERING_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_ORDERING_DESC">
+                    <option value="publish_up_desc">MOD_JTARTICLEXPRO_OPTION_ORDER_PUBLISH_UP_DESC</option>
+                    <option value="created_desc">MOD_JTARTICLEXPRO_OPTION_ORDER_CREATED_DESC</option>
+                    <option value="modified_desc">MOD_JTARTICLEXPRO_OPTION_ORDER_MODIFIED_DESC</option>
+                    <option value="hits_desc">MOD_JTARTICLEXPRO_OPTION_ORDER_HITS_DESC</option>
+                    <option value="title_asc">MOD_JTARTICLEXPRO_OPTION_ORDER_TITLE_ASC</option>
+                    <option value="ordering_asc">MOD_JTARTICLEXPRO_OPTION_ORDER_ORDERING_ASC</option>
+                    <option value="random">MOD_JTARTICLEXPRO_OPTION_ORDER_RANDOM</option>
+                </field>
+
+                <field
+                    name="exclude_current"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="0"
+                    label="MOD_JTARTICLEXPRO_FIELD_EXCLUDE_CURRENT_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_EXCLUDE_CURRENT_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                    name="language_filter"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="1"
+                    label="MOD_JTARTICLEXPRO_FIELD_LANGUAGE_FILTER_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_LANGUAGE_FILTER_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="display" label="MOD_JTARTICLEXPRO_FIELDSET_DISPLAY">
+                <field
+                    name="layout"
+                    type="list"
+                    default="carousel"
+                    label="MOD_JTARTICLEXPRO_FIELD_LAYOUT_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_LAYOUT_DESC">
+                    <option value="default">MOD_JTARTICLEXPRO_OPTION_LAYOUT_DEFAULT</option>
+                    <option value="carousel">MOD_JTARTICLEXPRO_OPTION_LAYOUT_CAROUSEL</option>
+                    <option value="grid">MOD_JTARTICLEXPRO_OPTION_LAYOUT_GRID</option>
+                    <option value="list">MOD_JTARTICLEXPRO_OPTION_LAYOUT_LIST</option>
+                    <option value="media">MOD_JTARTICLEXPRO_OPTION_LAYOUT_MEDIA</option>
+                    <option value="featured">MOD_JTARTICLEXPRO_OPTION_LAYOUT_FEATURED</option>
+                    <option value="magazine">MOD_JTARTICLEXPRO_OPTION_LAYOUT_MAGAZINE</option>
+                </field>
+
+
+                <field
+                    name="columns"
+                    type="list"
+                    default="3"
+                    label="MOD_JTARTICLEXPRO_FIELD_COLUMNS_LABEL">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </field>
+
+                <field
+                    name="heading_level"
+                    type="list"
+                    default="h3"
+                    label="MOD_JTARTICLEXPRO_FIELD_HEADING_LEVEL_LABEL">
+                    <option value="h2">H2</option>
+                    <option value="h3">H3</option>
+                    <option value="h4">H4</option>
+                    <option value="h5">H5</option>
+                </field>
+
+                <field
+                    name="show_image"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="1"
+                    label="MOD_JTARTICLEXPRO_FIELD_SHOW_IMAGE_LABEL">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                    name="image_source"
+                    type="list"
+                    default="intro"
+                    label="MOD_JTARTICLEXPRO_FIELD_IMAGE_SOURCE_LABEL">
+                    <option value="intro">MOD_JTARTICLEXPRO_OPTION_IMAGE_INTRO</option>
+                    <option value="fulltext">MOD_JTARTICLEXPRO_OPTION_IMAGE_FULLTEXT</option>
+                    <option value="auto">MOD_JTARTICLEXPRO_OPTION_IMAGE_AUTO</option>
+                </field>
+
+                <field
+                    name="image_ratio"
+                    type="list"
+                    default="ratio-16x9"
+                    label="MOD_JTARTICLEXPRO_FIELD_IMAGE_RATIO_LABEL">
+                    <option value="ratio-16x9">16:9</option>
+                    <option value="ratio-4x3">4:3</option>
+                    <option value="ratio-1x1">1:1</option>
+                    <option value="ratio-21x9">21:9</option>
+                </field>
+
+                <field
+                    name="info_position"
+                    type="list"
+                    default="below"
+                    label="MOD_JTARTICLEXPRO_FIELD_INFO_POSITION_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_INFO_POSITION_DESC">
+                    <option value="above">MOD_JTARTICLEXPRO_OPTION_INFO_ABOVE</option>
+                    <option value="below">MOD_JTARTICLEXPRO_OPTION_INFO_BELOW</option>
+                </field>
+
+                <field
+                    name="show_featured_badge"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="1"
+                    label="MOD_JTARTICLEXPRO_FIELD_SHOW_FEATURED_BADGE_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_SHOW_FEATURED_BADGE_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                    name="featured_badge_type"
+                    type="list"
+                    default="category"
+                    label="MOD_JTARTICLEXPRO_FIELD_FEATURED_BADGE_TYPE_LABEL"
+                    showon="show_featured_badge:1">
+                    <option value="category">MOD_JTARTICLEXPRO_OPTION_BADGE_CATEGORY</option>
+                    <option value="featured">MOD_JTARTICLEXPRO_OPTION_BADGE_FEATURED</option>
+                    <option value="custom">MOD_JTARTICLEXPRO_OPTION_BADGE_CUSTOM</option>
+                </field>
+
+                <field
+                    name="featured_badge_text"
+                    type="text"
+                    default=""
+                    label="MOD_JTARTICLEXPRO_FIELD_FEATURED_BADGE_TEXT_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_FEATURED_BADGE_TEXT_DESC"
+                    showon="show_featured_badge:1"
+                    filter="string"
+                />
+
+                <field
+                    name="featured_badge_style"
+                    type="list"
+                    default="primary"
+                    label="MOD_JTARTICLEXPRO_FIELD_FEATURED_BADGE_STYLE_LABEL"
+                    showon="show_featured_badge:1">
+                    <option value="primary">Primary</option>
+                    <option value="secondary">Secondary</option>
+                    <option value="success">Success</option>
+                    <option value="danger">Danger</option>
+                    <option value="warning">Warning</option>
+                    <option value="info">Info</option>
+                    <option value="dark">Dark</option>
+                    <option value="light">Light</option>
+                </field>
+
+                <field
+                    name="show_intro"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="1"
+                    label="MOD_JTARTICLEXPRO_FIELD_SHOW_INTRO_LABEL">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                    name="intro_limit"
+                    type="number"
+                    default="120"
+                    min="0"
+                    max="500"
+                    step="10"
+                    label="MOD_JTARTICLEXPRO_FIELD_INTRO_LIMIT_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_INTRO_LIMIT_DESC"
+                    filter="integer"
+                />
+
+                <field
+                    name="show_category"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="1"
+                    label="MOD_JTARTICLEXPRO_FIELD_SHOW_CATEGORY_LABEL">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                    name="link_category"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="1"
+                    label="MOD_JTARTICLEXPRO_FIELD_LINK_CATEGORY_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_LINK_CATEGORY_DESC"
+                    showon="show_category:1">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                    name="show_date"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="1"
+                    label="MOD_JTARTICLEXPRO_FIELD_SHOW_DATE_LABEL">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                    name="show_author"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="0"
+                    label="MOD_JTARTICLEXPRO_FIELD_SHOW_AUTHOR_LABEL">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                    name="show_readmore"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="1"
+                    label="MOD_JTARTICLEXPRO_FIELD_SHOW_READMORE_LABEL">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="carousel" label="MOD_JTARTICLEXPRO_FIELDSET_CAROUSEL">
+                <field
+                    name="items_per_slide"
+                    type="list"
+                    default="1"
+                    label="MOD_JTARTICLEXPRO_FIELD_ITEMS_PER_SLIDE_LABEL">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </field>
+
+                <field
+                    name="autoplay"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="0"
+                    label="MOD_JTARTICLEXPRO_FIELD_AUTOPLAY_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_AUTOPLAY_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                    name="interval"
+                    type="number"
+                    default="5000"
+                    min="1000"
+                    max="30000"
+                    step="500"
+                    label="MOD_JTARTICLEXPRO_FIELD_INTERVAL_LABEL"
+                    filter="integer"
+                />
+
+                <field
+                    name="show_controls"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="1"
+                    label="MOD_JTARTICLEXPRO_FIELD_SHOW_CONTROLS_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_SHOW_CONTROLS_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                    name="controls_position"
+                    type="list"
+                    default="bottom"
+                    label="MOD_JTARTICLEXPRO_FIELD_CONTROLS_POSITION_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_CONTROLS_POSITION_DESC"
+                    showon="show_controls:1">
+                    <option value="bottom">MOD_JTARTICLEXPRO_OPTION_CONTROLS_BOTTOM</option>
+                    <option value="outside">MOD_JTARTICLEXPRO_OPTION_CONTROLS_OUTSIDE</option>
+                </field>
+
+                <field
+                    name="show_indicators"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="1"
+                    label="MOD_JTARTICLEXPRO_FIELD_SHOW_INDICATORS_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_SHOW_INDICATORS_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                    name="indicator_style"
+                    type="list"
+                    default="lines"
+                    label="MOD_JTARTICLEXPRO_FIELD_INDICATOR_STYLE_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_INDICATOR_STYLE_DESC"
+                    showon="show_indicators:1">
+                    <option value="lines">MOD_JTARTICLEXPRO_OPTION_INDICATOR_LINES</option>
+                    <option value="dots">MOD_JTARTICLEXPRO_OPTION_INDICATOR_DOTS</option>
+                </field>
+
+                <field
+                    name="pause_hover"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="1"
+                    label="MOD_JTARTICLEXPRO_FIELD_PAUSE_HOVER_LABEL">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="advanced" label="MOD_JTARTICLEXPRO_FIELDSET_ADVANCED">
+                <field
+                    name="show_schema"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="0"
+                    label="MOD_JTARTICLEXPRO_FIELD_SHOW_SCHEMA_LABEL"
+                    description="MOD_JTARTICLEXPRO_FIELD_SHOW_SCHEMA_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                    name="only_with_image"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="0"
+                    label="MOD_JTARTICLEXPRO_FIELD_ONLY_WITH_IMAGE_LABEL">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                    name="moduleclass_sfx"
+                    type="text"
+                    label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                    description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+                    filter="string"
+                />
+            </fieldset>
+        </fields>
+    </config>
+</extension>

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "mod_jtarticlexpro",
+  "version": "1.0.19",
+  "description": "JT ArticleX PRO frontend assets",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "mod_jtarticlexpro.site",
+      "type": "style",
+      "uri": "mod_jtarticlexpro/site.css"
+    }
+  ]
+}
